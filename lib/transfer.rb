@@ -35,7 +35,8 @@ class Transfer
   end
   
   def reverse_transfer
-    
+      @@last_transfer[@sender] = @sender 
+      @@last_transfer[@receiver] = @receiver 
   end
   
 end
