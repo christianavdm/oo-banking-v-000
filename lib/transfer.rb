@@ -8,6 +8,14 @@ class Transfer
     @receiver = receiver
     @status = "pending"
     @amount = amount
-    # binding.pry
   end
+  
+  def valid?
+    if @sender.valid && @receiver.valid
+      true 
+    else
+      false 
+    end
+  end
+  
 end
