@@ -3,6 +3,8 @@ require 'pry'
 class Transfer
   attr_reader :sender, :receiver, :status, :amount
   
+  @last_transfer = { @sender => nil, @receiver => nil, @amount => nil }
+  
   def initialize(sender, receiver, amount)
     @sender = sender
     @receiver = receiver
@@ -22,6 +24,8 @@ class Transfer
     if @status == "pending" && self.valid? && @sender.balance > @amount
       @sender.balance -= @amount
       @receiver.balance += @amount
+      @last_transfer[@sender] = @sender 
+    
       @status = "complete"
     else
       @status = "rejected"
