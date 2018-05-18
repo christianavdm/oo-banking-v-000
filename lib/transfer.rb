@@ -41,6 +41,7 @@ class Transfer
       @status = "reversed"
     else
       return "incomplete"
+    end
   end
   
 end
