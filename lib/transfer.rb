@@ -25,7 +25,8 @@ class Transfer
       @sender.balance -= @amount
       @receiver.balance += @amount
       @last_transfer[@sender] = @sender 
-    
+      @last_transfer[@receivender 
+      @last_transfer[@sender] = @sender 
       @status = "complete"
     else
       @status = "rejected"
