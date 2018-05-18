@@ -35,8 +35,11 @@ class Transfer
   end
   
   def reverse_transfer
-      @@last_transfer[@sender] = @sender 
-      @@last_transfer[@receiver] = @receiver 
+      sender = @@last_transfer[@sender]
+      receiver = @@last_transfer[@receiver]
+      amount = @@last_transfer[@amount]
+      sender.balance += amount
+      receiver.balance -= amount
   end
   
 end
