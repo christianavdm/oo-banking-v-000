@@ -35,12 +35,12 @@ class Transfer
   end
   
   def reverse_transfer
-      sender = @@last_transfer[@sender]
-      receiver = @@last_transfer[@receiver]
-      amount = @@last_transfer[@amount]
-      sender.balance += amount
-      receiver.balance -= amount
+    if @status == "complete"
+      @sender.balance += @amount
+      @receiver.balance -= @amount
       @status = "reversed"
+    else
+      return "incomplete"
   end
   
 end
